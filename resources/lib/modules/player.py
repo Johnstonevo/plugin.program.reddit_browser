@@ -26,13 +26,13 @@ from resources.lib.modules.reddit import base_link
 
 def router(link):
 
-    import urlresolver
+    #import urlresolver
 
-    urlresolver.add_plugin_dirs(control.join(control.addonPath, 'resources', 'lib', 'resolvers', 'smu_plugins'))
+    #urlresolver.add_plugin_dirs(control.join(control.addonPath, 'resources', 'lib', 'resolvers', 'smu_plugins'))
 
-    # import resolveurl
-    #
-    # resolveurl.add_plugin_dirs(control.join(control.addonPath, 'resources', 'lib', 'resolvers', 'smu_plugins'))
+     import resolveurl
+    
+     resolveurl.add_plugin_dirs(control.join(control.addonPath, 'resources', 'lib', 'resolvers', 'smu_plugins'))
 
     if link.startswith(('acestream://', 'sop://')):
 
@@ -60,13 +60,13 @@ def router(link):
 
         return resolved
 
-    elif urlresolver.HostedMediaFile(link).valid_url():
+    #elif urlresolver.HostedMediaFile(link).valid_url():
 
-        stream = urlresolver.resolve(link)
+       # stream = urlresolver.resolve(link)
 
-    # elif resolveurl.HostedMediaFile(link).valid_url():
-    #
-    #     stream = resolveurl.resolve(link)
+     elif resolveurl.HostedMediaFile(link).valid_url():
+    
+         stream = resolveurl.resolve(link)
 
         return stream
 
